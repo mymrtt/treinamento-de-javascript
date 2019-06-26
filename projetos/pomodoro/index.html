@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="index.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <title>Pomodoro</title>
+</head>
+<body>
+  <main>
+    <section class="Pomodoro">
+      <div class="Pomodoro_timer">
+        <div class="Pomodoro_timer-content">
+          <div class="Pomodoro_content-timer">
+            <span id="time" pomodoroTime="1500">00</span>
+            <span id="timeBreak" pomodoroBreak="300">00</span>
+          </div>
+          <div class="Pomodoro_btns">
+            <button class="start btns" onClick="start()">Iniciar o Pomodoro</button>
+            <button class="stop btns" onClick="stop()">Pausar</button>
+          </div>
+        </div>
+      <!-- <div class="Pomodoro_break">
+        <div class="Pomodoro_break-timer">
+          <span id="timeBreak" pomodoroBreak="10">00</span>
+        </div>
+        <button class="btns btn_break" onClick="startBreak()">Iniciar intervalo</button>
+      </div> -->
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

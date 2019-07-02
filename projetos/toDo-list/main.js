@@ -1,30 +1,83 @@
-const todoList = document.getElementById('todoList');
-let todoListInput = document.getElementById('todoList_input');
-const containerList = document.createElement('div');
+let todoList = document.getElementById('todoList');
+
+let todoListInputTask = document.getElementById('todoList_task');
+let todoListInputTitle = document.getElementById('todoList_title');
+let todoListInputColor = document.getElementById('todoList_color');
+
+let containerList = document.createElement('div');
+containerList.className = 'containerList'
+
 let ul = document.createElement('ul');
+ul.id='ul';
 
 todoList.appendChild(containerList);
 containerList.appendChild(ul);
 
-function handleClick(){
-
-  handleNewTask();
-}
-
 function handleNewTask(){
-  let textInput = todoListInput.value
+  let infos = ({
+    title: todoListInputTitle.value,
+    task: todoListInputTask.value,
+    color: todoListInputColor.value
+  });
 
-  let createText = document.createTextNode(textInput);
-  let li = document.createElement('li');
-  const liBtn = document.createElement('button');
-  liBtn.innerHTML = 'Remover'
+  let getInputTitle = infos.title;
+  let getInputTask = infos.task;
+  let getInputColor = infos.color;
 
-  ul.appendChild(li);
-  li.appendChild(createText);
-  li.appendChild(liBtn);
+  let createTextTitle = document.createElement('h2'); 
+  let createTextTask = document.createElement('p'); 
+  let createTextColor = document.createElement('p');
+
+  createTextTask.innerHTML  = getInputTask
+  createTextTitle.innerHTML = getInputTitle
+  createTextColor.innerHTML = getInputColor
   
+  let li = document.createElement('li');
+  li.className='list'
+  const removeBtn = document.createElement('button');
+
+  li.style.backgroundColor = infos.color
+  
+  ul.appendChild(li);
+  li.appendChild(createTextTitle);
+  li.appendChild(createTextTask);
+  li.appendChild(createTextColor);
+  li.appendChild(removeBtn);
+
+  //Remove
+  removeBtn.className='removeBtn btn';
+  removeBtn.addEventListener('click', handleRemoveTask);
+  // infos = arrayRemove(infos, li);
+
+  removeBtn.innerHTML = 'Remover';
+
+  clearValues();
+  // handleRemoveTask();
 }
 
-// function handleRemoveTask() {
-//   const removeTask = 
-// }
+function clearValues () {
+  todoListInputTitle.value = ''
+  todoListInputTask.value = ''
+  todoListInputColor.value = ''
+}
+
+function handleRemoveTask() {
+  arrayRemove();
+}
+
+function arrayRemove(infos, li){
+  return infos.filter(function(el){
+    return el != li;
+  });
+}
+
+
+function handleRemoveAllTasks() {
+
+  const removeAll = document.getElementsByClassName('list');
+  
+  for (let i=0; list=removeAll[i]; i){
+    list.parentNode.removeChild(list);
+  }
+  console.log('removeAll', removeAll)
+}

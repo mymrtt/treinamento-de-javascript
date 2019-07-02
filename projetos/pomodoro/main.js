@@ -9,13 +9,14 @@ let intervalBreak;
 let timeBreak = document.getElementById('timeBreak');
 let pomodoroBreak = timeBreak.getAttribute('pomodoroBreak');
 
+
 // START
 function start () {
   startPomodoro();
   intervalPomodoro();
 }
 function stop () {
-
+  stopPomodoro();
 }
 
 function startPomodoro () {
@@ -33,7 +34,7 @@ function decrement () {
     updateDom();
   }
   else{
-    clearInterval(interval)
+    clearInterval(interval);
     decrementBreak();
   }
 }
@@ -67,11 +68,14 @@ function decrementBreak () {
 //BREAK
 
 //STOP
-
 function stopPomodoro () {
-  setInterval
-}
 
+  // if(pomodoroTime > 0){
+  //   pomodoroTime = clearInterval(interval);
+  // }
+  clearInterval(interval);
+  console.log('aaaaaaa');
+}
 //STOP
 
 

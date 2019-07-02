@@ -1,0 +1,38 @@
+*,
+*:after,
+*:before{
+  margin: 0; 
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+.containerList{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+.list{
+  padding: .5rem;
+  width: 15%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  box-shadow: 1px 0;
+  /* border: 1px solid; */
+}
+p{
+  margin: 0;
+}
+.btn{
+  width: 5rem;
+  height: 1.5rem;
+  border: none;
+}

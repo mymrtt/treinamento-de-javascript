@@ -47,12 +47,14 @@ function handleNewTask(){
   //Remove
   removeBtn.className='removeBtn btn';
   removeBtn.addEventListener('click', handleRemoveTask);
-  // infos = arrayRemove(infos, li);
 
   removeBtn.innerHTML = 'Remover';
 
   clearValues();
-  // handleRemoveTask();
+
+  function handleRemoveTask() {
+    ul.removeChild(li)
+  }
 }
 
 function clearValues () {
@@ -60,17 +62,6 @@ function clearValues () {
   todoListInputTask.value = ''
   todoListInputColor.value = ''
 }
-
-function handleRemoveTask() {
-  arrayRemove();
-}
-
-function arrayRemove(infos, li){
-  return infos.filter(function(el){
-    return el != li;
-  });
-}
-
 
 function handleRemoveAllTasks() {
 

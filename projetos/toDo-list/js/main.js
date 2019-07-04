@@ -1,21 +1,31 @@
 let todoList = document.getElementById('todoList');
-
 let todoListInputTask = document.getElementById('todoList_task');
 let todoListInputTitle = document.getElementById('todoList_title');
 let todoListInputColor = document.getElementById('todoList_color');
 
 let containerList = document.createElement('div');
-containerList.className = 'containerList'
-
 let ul = document.createElement('ul');
-ul.id='ul';
 
 let isEditing = undefined;
+
+containerList.className = 'containerList'
+ul.id='ul'
 
 todoList.appendChild(containerList);
 containerList.appendChild(ul);
 
+
 function handleNewTask(){
+  if (typeof(isEditing) == 'number') {
+		handleEditTask();
+  }
+  else{
+    render();
+    clearValues();
+  }
+}
+
+function render(){
   let infos = ({
     title: todoListInputTitle.value,
     task: todoListInputTask.value,
@@ -37,25 +47,64 @@ function handleNewTask(){
   let li = document.createElement('li');
   li.className='list'
   li.style.backgroundColor = infos.color
-
-  const removeBtn = document.createElement('button');
-
+  
   ul.appendChild(li);
   li.appendChild(createTextTitle);
   li.appendChild(createTextTask);
   li.appendChild(createTextColor);
-  li.appendChild(removeBtn);
 
-  //Remove
-  removeBtn.className='removeBtn btn';
-  removeBtn.addEventListener('click', handleRemoveTask);
+  //Container btns
+  const containerBtns = document.createElement('div');
+  containerBtns.className='containerBtns'
+  li.appendChild(containerBtns)
+  
+  //Btn Remove Task
+  const removeBtn = document.createElement('button');
+  removeBtn.className='removeBtn btn'
 
+  removeBtn.addEventListener('click', function(){
+    ul.removeChild(li)
+  });
   removeBtn.innerHTML = 'x';
+  containerBtns.appendChild(removeBtn);
+
+  //Btn Edit Task
+  const editBtn = document.createElement('button');
+  editBtn.className='editBtn btn'
+
+  editBtn.addEventListener('click', function(infos){
+    todoListInputTitle.value = getInputTitle
+    todoListInputTask.value = getInputTask
+    todoListInputColor.value = getInputColor
+    isEditing = infos
+
+    handleEditTask()
+  });
+  editBtn.innerHTML = 'Edit';
+  containerBtns.appendChild(editBtn);
 
   clearValues();
+}
 
-  function handleRemoveTask() {
-    ul.removeChild(li)
+function handleEditTask (infos) {
+  infos[isEditing] = {
+    title: todoListInputTitle.value,
+    task: todoListInputTask.value,
+    color: todoListInputColor.value
+  };
+
+  isEditing = undefined;
+  clearValues();
+  render();
+  console.log('handleEditTask', handleEditTask)
+
+}
+
+function handleRemoveAllTasks() {
+  const removeAll = document.getElementsByClassName('list');
+  
+  for (let i=0; list=removeAll[i]; i){
+    list.parentNode.removeChild(list);
   }
 }
 
@@ -63,14 +112,4 @@ function clearValues () {
   todoListInputTitle.value = ''
   todoListInputTask.value = ''
   todoListInputColor.value = '#dddddd'
-}
-
-function handleRemoveAllTasks() {
-
-  const removeAll = document.getElementsByClassName('list');
-  
-  for (let i=0; list=removeAll[i]; i){
-    list.parentNode.removeChild(list);
-  }
-  console.log('removeAll', removeAll)
 }

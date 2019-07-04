@@ -76,16 +76,26 @@ p{
   border: none;
   cursor: pointer;
 }
-.removeBtn{
+.containerBtns{
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  background: none;
   outline: none;
+}
+.removeBtn{
+  background: none;
   opacity: 0.6;
   transition: transform .3s;
 }
 .removeBtn:hover{
+  opacity: 1
+}
+.editBtn{
+  background: none;
+  opacity: 0.6;
+  transition: transform .3s;
+}
+.editBtn:hover{
   opacity: 1
 }
 @media(max-width: 640px){

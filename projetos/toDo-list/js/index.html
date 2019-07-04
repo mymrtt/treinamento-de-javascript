@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="index.css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <title>ToDo List</title>
+</head>
+<body>
+  <section id="todoList">
+    <h1>ToDo List</h1>
+    <div id="todoList_content">
+      <input class="todo_inputs" id="todoList_title" placeholder="Title"></input>
+      <input class="todo_inputs" id="todoList_task" placeholder="Task"></input>
+      <input id="todoList_color" type="color" value="#dddddd" placeholder="Color"></input>
+      <div id="todoList_content-buttons">
+        <button class="btn" onClick="handleNewTask();">Submit</button>
+        <button class="btn" onClick="handleRemoveAllTasks();">Remove All</button>
+      </div>
+    </div>
+  </section>
+  <script src="main.js"></script>
+</body>
+</html>

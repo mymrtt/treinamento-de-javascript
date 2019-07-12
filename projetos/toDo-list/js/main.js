@@ -17,9 +17,15 @@ containerList.appendChild(ul);
 
 function handleNewTask(){
   if (typeof(isEditing) == 'number') {
-		handleEditTask();
+    handleEditTask();
   }
   else{
+    infos = ({
+      title: todoListInputTitle.value,
+      task: todoListInputTask.value,
+      color: todoListInputColor.value
+    });
+
     render();
     clearValues();
   }
@@ -78,7 +84,7 @@ function render(){
     todoListInputColor.value = getInputColor
     isEditing = infos
 
-    handleEditTask()
+    handleEditTask();
   });
   editBtn.innerHTML = 'Edit';
   containerBtns.appendChild(editBtn);
@@ -86,7 +92,7 @@ function render(){
   clearValues();
 }
 
-function handleEditTask (infos) {
+function handleEditTask(infos) {
   infos[isEditing] = {
     title: todoListInputTitle.value,
     task: todoListInputTask.value,
@@ -97,7 +103,6 @@ function handleEditTask (infos) {
   clearValues();
   render();
   console.log('handleEditTask', handleEditTask)
-
 }
 
 function handleRemoveAllTasks() {

@@ -28,37 +28,30 @@ const quiz = [
   },
 ]
 
-let atualQuestion = 0;
+let index = 0;
 let score = 0;
 
-function renderQuiz(){
-
-  const quizQuestions = quiz[atualQuestion];
-
+function render () {
   const form = document.createElement('form');
-
   const textQuestion = document.createElement('h2');
-
-  let perguntaTxt = document.createTextNode(quiz[atualQuestion].question);
+  const perguntaTxt = document.createTextNode(quiz[index].question);
   textQuestion.appendChild(perguntaTxt);
-  
-  form.appendChild(textQuestion);
 
-  let quizAnswers = quiz[atualQuestion].answers.map(answer =>{
+  form.appendChild(textQuestion)
+
+  quiz[index].answers.map(answer => {
+    const inputAnswer = document.createElement('input');
+    inputAnswer.setAttribute('type', 'radio');
+    inputAnswer.setAttribute('name', quiz[index].question);
+    inputAnswer.setAttribute('value', answer);
 
     const label = document.createElement('label');
 
-    const inputAnswer = document.createElement('input');
-    inputAnswer.setAttribute('type', 'radio');
-    inputAnswer.setAttribute('name', quiz[atualQuestion].question);
-    inputAnswer.setAttribute('value', answer);
-    inputAnswer.setAttribute('required', 'true')
-    
     const labelTxt = document.createTextNode(answer);
+    label.appendChild(labelTxt)
 
-    form.appendChild(inputAnswer);    
-    label.appendChild(labelTxt);
-    form.appendChild(label);
+    form.appendChild(inputAnswer)
+    form.appendChild(label)
   })
 
   const submitBtn = document.createElement('button');
@@ -69,23 +62,25 @@ function renderQuiz(){
   form.addEventListener('submit', e => {
     e.preventDefault();
 
-    let answersValue = form.elements[quizQuestions.question].value;
-    console.log(form.elements[quizQuestions.question]);
+    let answersValue = form.elements[quiz[index].question].value;
   
-    if (answersValue == quizQuestions.answers) {
+    if (answersValue == quiz[index].correctAnswer) {
       score = score + 1;
     }
 
     document.body.innerHTML = '';
 
-    if(atualQuestion !== quiz.length -1){
-      atualQuestion = atualQuestion + 1;
-      renderQuiz();
+    if (index === quiz.length - 1) {
+      document.body.innerHTML = 'your score is: ' + score;
+    }
+
+    else {
+      index = index + 1
+      render();
     }
   });
-
 
   document.body.appendChild(form);
 }
 
-window.onload = renderQuiz();
+window.onload = render();

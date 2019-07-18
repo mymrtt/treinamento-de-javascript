@@ -84,7 +84,7 @@ input {
 .btnAddSeason {
   margin: 0.8rem;
   padding: 0.5rem;
-  width: 30%;
+  width: 55%;
 }
 #containerRender {
   width: 100%;
@@ -115,9 +115,9 @@ input {
   border-radius: 8px;
 } */
 .containerCard {
-  margin: 0.5rem;
-  padding: 0.5rem;
-  width: 30%;
+  /* margin: 0.5rem;
+  padding: 0.5rem;*/
+  width: 20%;
   height: 100%;
   display: flex;
   justify-content: space-around;
@@ -143,7 +143,8 @@ input {
   height: 80%;
 }
 .btnAdd {
-  padding: 0.5rem;
+  width: 20%;
+  /* padding: 0.5rem; */
   height: 70%;
   border: 1px solid #035fe7;
   outline: none;
@@ -159,15 +160,15 @@ input {
   display: flex;
 }
 .createRenderLi {
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   width: 100%;
   align-items: center;
   display: flex;
   justify-content: center;
 }
 .btnRemove {
-  margin: 0.5rem;
-  padding: 0.5rem;
+  /* margin: 0.5rem;
+  padding: 0.5rem; */
   width: 8%;
   border-radius: 30px;
   border: 1px solid #035fe7;

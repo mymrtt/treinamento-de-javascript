@@ -5,6 +5,9 @@ ul.className = "containerRenderContent";
 const containerRenderSeason = document.createElement("div");
 containerRenderSeason.className = "containerRenderSeason";
 
+const renderUl = document.createElement("ul");
+renderUl.className = "renderUl";
+
 render = () => {
   const form = document.createElement("form");
 
@@ -17,7 +20,7 @@ render = () => {
   labelCategory.appendChild(inputCategory);
   form.appendChild(labelCategory);
 
-  //CRIANDO TITULO
+  // //CRIANDO TITULO
   const labelTitle = document.createElement("label");
   const inputTitle = document.createElement("input");
   inputTitle.setAttribute("placeholder", "Title");
@@ -25,7 +28,7 @@ render = () => {
   labelTitle.appendChild(inputTitle);
   form.appendChild(labelTitle);
 
-  //CRIANDO DESCRICAO
+  // //CRIANDO DESCRICAO
   const labelDescription = document.createElement("label");
   const inputDescription = document.createElement("input");
   inputDescription.setAttribute("placeholder", "Description");
@@ -33,17 +36,17 @@ render = () => {
   labelDescription.appendChild(inputDescription);
   form.appendChild(labelDescription);
 
-  //CONTAINER BTNS
-  const containerBtnsSeason = document.createElement("div");
-  containerBtnsSeason.className = "containerBtnsSeason";
+  // CONTAINER BTNS
+  const containerBtnsForm = document.createElement("div");
+  containerBtnsForm.className = "containerBtnsForm";
 
   // BTN SUBMIT
-  const submit = document.createElement("button");
-  submit.setAttribute("type", "submit");
-  submit.innerHTML = "Submit";
-  submit.className = "btnSubmit btnsSeason";
-  containerBtnsSeason.appendChild(submit);
-  form.appendChild(containerBtnsSeason);
+  const btnSubmit = document.createElement("button");
+  btnSubmit.setAttribute("type", "submit");
+  btnSubmit.innerHTML = "Submit";
+  btnSubmit.className = "btnSubmit btnsSeason";
+  containerBtnsForm.appendChild(btnSubmit);
+  form.appendChild(containerBtnsForm);
 
   form.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -83,6 +86,11 @@ render = () => {
       //ADD EP
       const containerAdd = document.createElement("div");
       containerAdd.className = "containerAdd";
+
+      // const inputSeason = document.createElement("input");
+      // inputSeason.className = "inputSeason";
+      // inputSeason.setAttribute("placeholder", "Add Season");
+
       const inputEp = document.createElement("input");
       inputEp.className = "inputEp";
       inputEp.setAttribute("placeholder", "Add Episode");
@@ -99,31 +107,39 @@ render = () => {
         event.preventDefault();
 
         const inputValue = inputEp.value;
-        console.log("inputValue", inputValue);
 
-        const createRenderUl = document.createElement("ul");
-        createRenderUl.className = "createRenderUl";
-        li.appendChild(createRenderUl);
+        inputEp.value = "";
 
-        createRenderLi = document.createElement("li");
-        createRenderLi.className = "createRenderLi";
-        createRenderLi.innerHTML = inputValue;
-        createRenderUl.appendChild(createRenderLi);
+        // const renderUl = document.createElement("ul");
+        // renderUl.className = "renderUl";
+        containerAdd.appendChild(renderUl);
+
+        renderLi = document.createElement("li");
+        renderLi.className = "renderLi";
+        renderLi.innerHTML = inputValue;
+        renderUl.appendChild(renderLi);
 
         btnRemove = document.createElement("button");
         btnRemove.innerHTML = "x";
         btnRemove.className = "btnRemove";
-        createRenderLi.appendChild(btnRemove);
+        renderLi.appendChild(btnRemove);
 
         btnRemove.addEventListener("click", function(event) {
-          createRenderUl.removeChild(createRenderLi);
+          renderUl.removeChild(renderLi);
           console.log("removeee");
         });
       });
     });
+    clearValues();
 
     document.body.appendChild(containerRender);
   });
+
+  clearValues = () => {
+    (inputCategory.value = ""),
+      (inputTitle.value = ""),
+      (inputDescription.value = "");
+  };
 
   document.body.appendChild(form);
 };

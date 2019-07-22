@@ -41,7 +41,6 @@ form {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  /* background: antiquewhite; */
   border: 1px solid #035fe7;
   border-radius: 10px;
 }
@@ -59,21 +58,19 @@ input {
   border-radius: 8px;
   outline: none;
 }
-.containerBtnsSeason {
+.containerBtnsForm {
   width: 80%;
   height: 15%;
   display: flex;
 }
 .btnsSeason {
-  /* margin: 0 0.5rem; */
   width: 40%;
-  /* height: 25%; */
-  color: #8f8f8f;
+  color: #fff;
   outline: none;
   cursor: pointer;
   border: 1px solid #035fe7;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: #035fe7;
 }
 .btnSubmit {
   margin: 0 0.5rem;
@@ -91,40 +88,28 @@ input {
   display: flex;
 }
 .containerRenderContent {
-  padding: 3rem 0;
+  padding: 2rem 0;
   width: 100%;
-  display: flex;
-  justify-content: center;
-}
-/* ul {
-  padding: 5rem 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-} */
-/* li {
-  margin: 0.1rem;
-  padding: 0.5rem;
-  width: 30%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  border: 1px solid #035fe7;
-  border-radius: 8px;
-} */
+  justify-content: space-evenly;
+}
 .containerCard {
-  /* margin: 0.5rem;
-  padding: 0.5rem;*/
+  padding: 1rem;
   width: 20%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   border: 1px solid #035fe7;
   border-radius: 8px;
+}
+.containerCard:hover {
+  box-shadow: 1px 1px rgb(167, 167, 167), 2px 2px rgb(167, 167, 167),
+    3px 3px rgb(167, 167, 167);
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
 }
 .containerLi {
   width: 100%;
@@ -133,45 +118,46 @@ input {
   height: 100%;
 }
 .containerAdd {
-  /* margin: 0.5rem; */
   width: 85%;
-  /* height: 30%; */
+  height: 100%;
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
 }
-.inputEp {
-  height: 80%;
-}
+/* .inputEp {
+  height: 100%;
+} */
 .btnAdd {
   width: 20%;
-  /* padding: 0.5rem; */
-  height: 70%;
+  height: 100%;
   border: 1px solid #035fe7;
   outline: none;
   cursor: pointer;
   background: none;
   border-radius: 30px;
 }
-.btnAddEp:hover {
-  color: #035fe7;
+.btnAdd:hover {
+  color: #fff;
+  background-color: #035fe7;
 }
-.createRenderUl {
+.renderUl {
   width: 100%;
   display: flex;
 }
-.createRenderLi {
-  /* padding: 0.5rem; */
+.renderLi {
   width: 100%;
   align-items: center;
   display: flex;
   justify-content: center;
 }
 .btnRemove {
-  /* margin: 0.5rem;
-  padding: 0.5rem; */
   width: 8%;
   border-radius: 30px;
   border: 1px solid #035fe7;
   background: none;
   cursor: pointer;
+}
+.btnRemove:hover {
+  color: #fff;
+  background-color: #035fe7;
 }
